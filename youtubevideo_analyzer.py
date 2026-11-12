@@ -3,10 +3,11 @@ from agno.agent import Agent
 from agno.models.groq import Groq
 from agno.tools.youtube import YouTubeTools
 from textwrap import dedent
-
+import os
 load_dotenv()
 
-
+API_key = st.secrets.get(
+    "GROQ_API_KEY",os.getenv("GROQ_API_KEY"))
 def youtubeAnalyzer():
     return Agent(
         name="YouTube Agent",
