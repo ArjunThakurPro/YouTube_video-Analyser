@@ -12,6 +12,7 @@ def youtubeAnalyzer():
     return Agent(
         name="YouTube Agent",
         model=Groq(id="openai/gpt-oss-120b"),
+        api_key =API_key,
         tools=[YouTubeTools()],
         instructions=dedent("""\
         "You are a concise YouTube video analyst. "
