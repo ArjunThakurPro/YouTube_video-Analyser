@@ -21,13 +21,3 @@ def youtubeAnalyzer():
         add_datetime_to_context=True,
         markdown=True,
     )
-
-    try:
-        youtubeAgent.print_response(
-            "Analyze this video: https://www.youtube.com/watch?v=0M9i-mAls4w",
-            stream=True,
-        )
-    except Exception as exc:
-        print(
-            f"Model request failed: {exc}\nTry a different Groq model or provide a shorter input."
-        )
