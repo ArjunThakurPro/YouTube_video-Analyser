@@ -6,7 +6,9 @@ from textwrap import dedent
 import os
 load_dotenv()
 import streamlit as st
-def youtubeAnalyzer(API_key):
+def youtubeAnalyzer():
+    API_key = st.secrets.get(
+    "GROQ_API_KEY",os.getenv("GROQ_API_KEY"))
     return Agent(
         name="YouTube Agent",
         model=Groq(id="openai/gpt-oss-120b"),
