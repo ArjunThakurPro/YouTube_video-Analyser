@@ -3,9 +3,6 @@ import os
 import streamlit as st
 
 from youtubevideo_analyzer import youtubeAnalyzer
-API_key = st.secrets.get(
-    "GROQ_API_KEY",os.getenv("GROQ_API_KEY"))
-
 st.set_page_config(
     page_title="YouTube Video Analyzer",
     page_icon="🎬",
@@ -130,7 +127,7 @@ if submitted:
     else:
         with st.spinner("Watching the video and preparing your analysis..."):
             try:
-                agent = youtubeAnalyzer(API_key)
+                agent = youtubeAnalyzer()
                 response = agent.run(f"Analyze this video: {video_url.strip()}")
                 analysis = response.content
                 if isinstance(analysis, str) and analysis.strip():
